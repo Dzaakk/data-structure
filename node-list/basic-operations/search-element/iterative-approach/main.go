@@ -1,0 +1,39 @@
+package main
+
+import "fmt"
+
+type ListNode struct {
+	Value int
+	Next  *ListNode
+}
+
+func (head *ListNode) Search(key int) bool {
+	current := head
+
+	for current != nil {
+		if current.Value == key {
+			return true
+		}
+
+		current = current.Next
+	}
+
+	return false
+}
+
+func main() {
+	var head *ListNode
+
+	head = &ListNode{Value: 10, Next: nil}
+	head.Next = &ListNode{Value: 14, Next: nil}
+	head.Next.Next = &ListNode{Value: 20, Next: nil}
+
+	ValueToSearch := 1
+	found := head.Search(ValueToSearch)
+
+	if found {
+		fmt.Printf("Value %d found in the linked list.\n", ValueToSearch)
+	} else {
+		fmt.Printf("Value %d not found in the linked list.\n", ValueToSearch)
+	}
+}
