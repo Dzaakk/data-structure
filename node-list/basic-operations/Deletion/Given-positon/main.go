@@ -19,7 +19,7 @@ func deleteNodeAtPosition(head *ListNode, position int) *ListNode {
 	}
 
 	current := head
-	for i := 0; i < position-1 && current.next != nil; i++ {
+	for i := 0; i < position-2 && current.next != nil; i++ {
 		current = current.next
 	}
 
@@ -65,7 +65,7 @@ func main() {
 	fmt.Println("Original linked list:")
 	displayList(head)
 
-	positionToDelete := 2
+	positionToDelete := 3
 	head = deleteNodeAtPosition(head, positionToDelete)
 
 	fmt.Printf("Linked list after deleting node at position %d:\n", positionToDelete)
